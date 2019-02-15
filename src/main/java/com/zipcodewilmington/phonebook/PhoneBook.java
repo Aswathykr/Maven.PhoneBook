@@ -24,8 +24,11 @@ public class PhoneBook {
         }
     }
 
-    public List<String> lookup(String name) {
-        return phoneMap.get(name);
+    public String[] lookup(String name) {
+
+        List<String> list = phoneMap.get(name);
+
+        return (list == null) ? null : list.toArray(new String[list.size()]);
     }
 
     public void remove(String name) {

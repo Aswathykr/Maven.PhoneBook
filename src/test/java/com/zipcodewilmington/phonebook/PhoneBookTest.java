@@ -21,8 +21,8 @@ public class PhoneBookTest {
         //When
         phoneBook.add(givenName, givenPhoneNumber);
         //Then
-        List<String> retrievedPhoneNumberList = phoneBook.lookup(givenName);
-        Assert.assertEquals(retrievedPhoneNumberList.get(0),givenPhoneNumber);
+        String[] retrievedPhoneNumberList = phoneBook.lookup(givenName);
+        Assert.assertEquals(retrievedPhoneNumberList[0],givenPhoneNumber);
 
     }
 
@@ -38,9 +38,9 @@ public class PhoneBookTest {
         phoneBook.add(givenName, givenPhoneNumber);
         phoneBook.add(givenName, givenPhoneNumber2);
         //Then
-        List<String> retrievedPhoneNumberList = phoneBook.lookup(givenName);
-        Assert.assertEquals(retrievedPhoneNumberList.get(0),givenPhoneNumber);
-        Assert.assertEquals(retrievedPhoneNumberList.get(1),givenPhoneNumber2);
+        String[] retrievedPhoneNumberList = phoneBook.lookup(givenName);
+        Assert.assertEquals(retrievedPhoneNumberList[0],givenPhoneNumber);
+        Assert.assertEquals(retrievedPhoneNumberList[1],givenPhoneNumber2);
     }
 
     @Test
@@ -52,14 +52,14 @@ public class PhoneBookTest {
 
         phoneBook.add(givenName, givenPhoneNumber);
         //Test add is successful
-        List<String> addedPhoneNumberList = phoneBook.lookup(givenName);
-        Assert.assertEquals(addedPhoneNumberList.get(0),givenPhoneNumber); //
+        String[] addedPhoneNumberList = phoneBook.lookup(givenName);
+        Assert.assertEquals(addedPhoneNumberList[0],givenPhoneNumber); //
 
         //When
         phoneBook.remove(givenName);
 
         //Then
-        List<String> retrievedPhoneNumber = phoneBook.lookup(givenName);
+        String[] retrievedPhoneNumber = phoneBook.lookup(givenName);
         Assert.assertNull(retrievedPhoneNumber); //
 
     }
@@ -74,8 +74,8 @@ public class PhoneBookTest {
         //When
         phoneBook.add(givenName, givenPhoneNumber);
         //Then
-        List<String> retrievedPhoneNumberList = phoneBook.lookup(givenName);
-        Assert.assertEquals(retrievedPhoneNumberList.get(0),givenPhoneNumber);
+        String[] retrievedPhoneNumberList = phoneBook.lookup(givenName);
+        Assert.assertEquals(retrievedPhoneNumberList[0],givenPhoneNumber);
 
     }
 
@@ -92,9 +92,9 @@ public class PhoneBookTest {
         //When
         phoneBook.add(givenName, givenPhoneNumber2);
         //Then
-        List<String> retrievedPhoneNumberList = phoneBook.lookup(givenName);
-        Assert.assertEquals(retrievedPhoneNumberList.get(0),givenPhoneNumber);
-        Assert.assertEquals(retrievedPhoneNumberList.get(1),givenPhoneNumber2);
+        String[] retrievedPhoneNumberList = phoneBook.lookup(givenName);
+        Assert.assertEquals(retrievedPhoneNumberList[0],givenPhoneNumber);
+        Assert.assertEquals(retrievedPhoneNumberList[1],givenPhoneNumber2);
 
     }
     @Test

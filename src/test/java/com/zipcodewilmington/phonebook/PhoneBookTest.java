@@ -51,6 +51,7 @@ public class PhoneBookTest {
         String givenPhoneNumber = "302-883-4275";
 
         phoneBook.add(givenName, givenPhoneNumber);
+
         //Test add is successful
         String[] addedPhoneNumberList = phoneBook.lookup(givenName);
         Assert.assertEquals(addedPhoneNumberList[0],givenPhoneNumber); //
@@ -63,7 +64,28 @@ public class PhoneBookTest {
         Assert.assertNull(retrievedPhoneNumber); //
 
     }
+    @Test
+    public void removephoneNumberTest(){
+        //Given
+        PhoneBook phoneBook = new PhoneBook();
+        String givenName = "Devesh";
+        String givenPhoneNumber = "302-883-4275";
+        String givenPhoneNumber1 = "302-883-4270";
 
+        phoneBook.add(givenName, givenPhoneNumber);
+        phoneBook.add(givenName, givenPhoneNumber1);
+        //Test add is successful
+        String[] addedPhoneNumberList = phoneBook.lookup(givenName);
+        Assert.assertEquals(addedPhoneNumberList[0],givenPhoneNumber); //
+        Assert.assertEquals(addedPhoneNumberList[1],givenPhoneNumber1); //
+
+        //When
+        phoneBook.remove(givenName, givenPhoneNumber);
+
+        //Then
+        String retrievedName = phoneBook.reverseLookup(givenPhoneNumber);
+        Assert.assertEquals(retrievedName, ""); //
+    }
     @Test
     public void lookupTest() {
         //Given
@@ -109,7 +131,7 @@ public class PhoneBookTest {
         phoneBook.add(givenName, givenPhoneNumber);
 
         //Then
-        String retrievedName = phoneBook.reverseLookup(givenPhoneNumber);
+        String retrievedName = phoneBook.reverseLookup("302-883-4275");
         Assert.assertEquals(retrievedName, givenName);
     }
 

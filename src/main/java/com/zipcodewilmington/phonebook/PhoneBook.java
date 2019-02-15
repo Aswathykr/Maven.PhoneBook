@@ -38,8 +38,8 @@ public class PhoneBook {
     public String reverseLookup(String phoneNumber) {
         String name = "";
         for (String key : phoneMap.keySet()) {
-            List<String> value = phoneMap.get(key);
-            if(value.contains(phoneNumber)){
+            List<String> valueList = phoneMap.get(key);
+            if(valueList.contains(phoneNumber)){
                 name = key;
                 break;
             }
@@ -55,5 +55,12 @@ public class PhoneBook {
             }
             System.out.print( "\n" );
         }
+    }
+
+    public void remove(String givenName, String givenPhoneNumber) {
+        List<String> valueList = phoneMap.get(givenName);
+        valueList.remove(givenPhoneNumber);
+        if(valueList.size() == 0)
+            phoneMap.remove(givenName);
     }
 }
